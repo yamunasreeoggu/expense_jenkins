@@ -1,0 +1,11 @@
+- name: Create Ansible Jobs
+  hosts: localhost
+  tasks:
+    - name: Create Jenkins Jobs
+      community.general.jenkins_job:
+        config: "{{ lookup('file', 'job.xml') }}"
+        name: test1
+        password: admin123
+        url: http://172.31.81.197:8080
+        user: admin
+
