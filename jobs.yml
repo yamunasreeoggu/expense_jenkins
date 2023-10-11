@@ -7,32 +7,40 @@
   tasks:
     - name: Create Jenkins Jobs - Frontend
       community.general.jenkins_job:
-        config: "{{ lookup('file', 'job.xml') }}"
+        config: "{{ lookup('template', 'job.xml') }}"
         name: frontend
         password: "{{jenkins_password}}"
         url: "{{jenkins_url}}"
         user: "{{jenkins_user}}"
+      vars:
+        repo_name: frontend
 
     - name: Create Jenkins Jobs - Backend
       community.general.jenkins_job:
-        config: "{{ lookup('file', 'job.xml') }}"
+        config: "{{ lookup('template', 'job.xml') }}"
         name: backend
         password: "{{jenkins_password}}"
         url: "{{jenkins_url}}"
         user: "{{jenkins_user}}"
+      vars:
+        repo_name: backend
 
     - name: Create Jenkins Jobs - Expense Parameters
       community.general.jenkins_job:
-        config: "{{ lookup('file', 'job.xml') }}"
+        config: "{{ lookup('template', 'job.xml') }}"
         name: expense-parameters
         password: "{{jenkins_password}}"
         url: "{{jenkins_url}}"
         user: "{{jenkins_user}}"
+      vars:
+        repo_name: parameter_store
 
     - name: Create Jenkins Jobs - Expense Terraform
       community.general.jenkins_job:
-        config: "{{ lookup('file', 'job.xml') }}"
+        config: "{{ lookup('template', 'job.xml') }}"
         name: expense-terraform
         password: "{{jenkins_password}}"
         url: "{{jenkins_url}}"
         user: "{{jenkins_user}}"
+      vars:
+        repo_name: expense_terraform
