@@ -44,7 +44,7 @@
             <submoduleCfg class="empty-list"/>
             <extensions/>
         </scm>
-        <scriptPath>Jenkinsfile</scriptPath>
+        <scriptPath>{{file_name}}</scriptPath>
         <lightweight>true</lightweight>
     </definition>
     <triggers/>
