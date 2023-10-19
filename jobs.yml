@@ -61,6 +61,6 @@
         url: "{{jenkins_url}}"
         user: "{{jenkins_user}}"
       vars:
-        repo_name: expense_terraform
+        repo_name: infra_ansible
         auto_trigger: "false"
         file_name: Jenkinsfile-Mutable
