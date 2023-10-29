@@ -29,6 +29,18 @@
         auto_trigger: "true"
         file_name: Jenkinsfile
 
+    - name: Create Jenkins Jobs - Schema Load
+      community.general.jenkins_job:
+        config: "{{ lookup('template', 'mjob.xml') }}"
+        name: schema_load
+        password: "{{jenkins_password}}"
+        url: "{{jenkins_url}}"
+        user: "{{jenkins_user}}"
+      vars:
+        repo_name: expense_schema_load
+        auto_trigger: "true"
+        file_name: Jenkinsfile
+
     - name: Create Jenkins Jobs - Expense Parameters
       community.general.jenkins_job:
         config: "{{ lookup('template', 'job.xml') }}"
