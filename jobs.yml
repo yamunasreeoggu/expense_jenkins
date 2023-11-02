@@ -41,6 +41,18 @@
         auto_trigger: "true"
         file_name: Jenkinsfile
 
+    - name: Create Jenkins Jobs - Config Parameter Init Container
+      community.general.jenkins_job:
+        config: "{{ lookup('template', 'mjob.xml') }}"
+        name: init_container
+        password: "{{jenkins_password}}"
+        url: "{{jenkins_url}}"
+        user: "{{jenkins_user}}"
+      vars:
+        repo_name: expense_parameter_init_container
+        auto_trigger: "true"
+        file_name: Jenkinsfile
+
     - name: Create Jenkins Jobs - Expense Parameters
       community.general.jenkins_job:
         config: "{{ lookup('template', 'job.xml') }}"
