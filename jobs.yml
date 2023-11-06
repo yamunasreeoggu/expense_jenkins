@@ -88,3 +88,15 @@
         repo_name: infra_ansible
         auto_trigger: "false"
         file_name: Jenkinsfile-Mutable
+
+    - name: Create Jenkins Jobs - Helm Deployment
+      community.general.jenkins_job:
+        config: "{{ lookup('template', 'job.xml') }}"
+        name: helm-deployment
+        password: "{{jenkins_password}}"
+        url: "{{jenkins_url}}"
+        user: "{{jenkins_user}}"
+      vars:
+        repo_name: expense_helm_chart
+        auto_trigger: "false"
+        file_name: Jenkinsfile
