@@ -100,3 +100,17 @@
         repo_name: expense_helm_chart
         auto_trigger: "false"
         file_name: Jenkinsfile
+
+## Roboshop:
+
+    - name: Create Jenkins Jobs - Roboshop Terraform
+      community.general.jenkins_job:
+        config: "{{ lookup('template', 'job.xml') }}"
+        name: roboshop-terraform
+        password: "{{jenkins_password}}"
+        url: "{{jenkins_url}}"
+        user: "{{jenkins_user}}"
+      vars:
+        repo_name: roboshop_terraform
+        auto_trigger: "false"
+        file_name: Jenkinsfile
